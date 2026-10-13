@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VELVET & CO. | Contemporary Designer Clothing & Apparel</title>
+  <meta name="description" content="Discover premium, modern apparel and accessories at VELVET & CO. Shop high quality coats, knitwear, denim, and streetwear with worldwide shipping.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-announcement">
+    <span class="badge-pill">Limited Time</span>
+    <span>🔥 Spring Flash Sale: Up to 40% OFF with code <strong class="code-highlight" id="topPromoCode" title="Click to copy">SPRING40</strong></span>
+    <span>•</span>
+    <span>Free Express Shipping on orders over $75</span>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      
+      <!-- Mobile Hamburger Toggle -->
+      <button class="action-btn mobile-menu-btn" id="mobileMenuBtn" aria-label="Open mobile menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Brand Logo -->
+      <a href="#" class="brand-logo">
+        VELVET &amp; CO<span class="logo-dot">.</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="nav-links" id="desktopNav">
+        <a href="#catalog" class="nav-link active" data-category="all">All Items</a>
+        <a href="#catalog" class="nav-link" data-category="women">Women</a>
+        <a href="#catalog" class="nav-link" data-category="men">Men</a>
+        <a href="#catalog" class="nav-link" data-category="streetwear">Streetwear</a>
+        <a href="#catalog" class="nav-link" data-category="accessories">Accessories</a>
+        <a href="#catalog" class="nav-link" data-category="shoes">Shoes</a>
+        <a href="#saleBanner" class="nav-link">Sale <span class="sale-tag">40% OFF</span></a>
+      </nav>
+
+      <!-- Search Bar -->
+      <div class="header-search">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="searchInput" placeholder="Search jackets, dresses, denim..." autocomplete="off">
+          <button class="search-clear-btn" id="searchClearBtn" aria-label="Clear search">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Action Buttons (Theme, Wishlist, Cart) -->
+      <div class="header-actions">
+        <!-- Theme Switcher -->
+        <button class="action-btn" id="themeToggleBtn" aria-label="Toggle dark mode" title="Switch Theme">
+          <svg id="moonIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg id="sunIcon" style="display:none;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <!-- Wishlist Button -->
+        <button class="action-btn" id="wishlistOpenBtn" aria-label="View wishlist" title="Wishlist">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="badge-count" id="wishlistCount">0</span>
+        </button>
+
+        <!-- Cart Button -->
+        <div class="cart-btn-wrapper" id="cartOpenBtn" title="View Cart">
+          <button class="action-btn" aria-label="View shopping bag" tabindex="-1">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="badge-count" id="cartCount">0</span>
+          </button>
+          <span class="cart-running-total" id="cartRunningTotal">$0.00</span>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <div class="mobile-nav-header">
+      <div class="brand-logo">VELVET &amp; CO.</div>
+      <button class="drawer-close-btn" id="mobileNavCloseBtn" aria-label="Close menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="#catalog" class="mobile-nav-link" data-category="all">All Collections</a>
+      <a href="#catalog" class="mobile-nav-link" data-category="women">Women's Wear</a>
+      <a href="#catalog" class="mobile-nav-link" data-category="men">Men's Wardrobe</a>
+      <a href="#catalog" class="mobile-nav-link" data-category="streetwear">Streetwear &amp; Hoodies</a>
+      <a href="#catalog" class="mobile-nav-link" data-category="accessories">Accessories &amp; Bags</a>
+      <a href="#catalog" class="mobile-nav-link" data-category="shoes">Footwear</a>
+      <a href="#saleBanner" class="mobile-nav-link" style="color:var(--danger);">Flash Sale (40% OFF)</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+          Spring 2026 Collection
+        </div>
+        <h1 class="hero-title">
+          Modern Elegance, <em>Redefined.</em>
+        </h1>
+        <p class="hero-description">
+          Architectural silhouettes, premium organic fabrics, and versatile tailoring designed for effortless daily expression.
+        </p>
+        <div class="hero-actions">
+          <a href="#catalog" class="btn btn-primary" id="heroShopBtn">
+            Explore Collection
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="#saleBanner" class="btn btn-outline">
+            View Flash Deals
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h3>15K+</h3>
+            <p>Active Curations</p>
+          </div>
+          <div class="stat-item">
+            <h3>99.4%</h3>
+            <p>Customer Approval</p>
+          </div>
+          <div class="stat-item">
+            <h3>24h</h3>
+            <p>Express Dispatch</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-image-card">
+          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=80" alt="Spring Editorial Fashion Model">
+          <div class="floating-glass-card">
+            <div class="floating-icon">✨</div>
+            <div class="floating-text">
+              <h4>Limited Spring Edition</h4>
+              <p>Extra 15% off with code <strong>SAVE15</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust & Value Bar -->
+  <section class="trust-bar">
+    <div class="container trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="1" y="3" width="15" height="13"></rect>
+            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+          </svg>
+        </div>
+        <div>
+          <h4>Free Worldwide Delivery</h4>
+          <p>On all qualifying orders over $75</p>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <polyline points="1 20 1 14 7 14"></polyline>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+          </svg>
+        </div>
+        <div>
+          <h4>30-Day Easy Returns</h4>
+          <p>Hassle-free exchanges &amp; refunds</p>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <div>
+          <h4>Secure Encrypted Checkout</h4>
+          <p>256-Bit SSL payment protection</p>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+        </div>
+        <div>
+          <h4>24/7 Dedicated Styling</h4>
+          <p>Live chat support from our stylists</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Showcase -->
+  <section class="categories-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-subtitle">Curated Departments</div>
+        <h2 class="section-title">Shop by Category</h2>
+      </div>
+
+      <div class="category-grid">
+        <div class="category-card" data-category="women">
+          <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=700&q=80" alt="Women's Fashion">
+          <div class="category-overlay">
+            <h3>Women</h3>
+            <span>Dresses, Blouses, Knits &rarr;</span>
+          </div>
+        </div>
+
+        <div class="category-card" data-category="men">
+          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=700&q=80" alt="Men's Wardrobe">
+          <div class="category-overlay">
+            <h3>Men</h3>
+            <span>Jackets, Chinos &amp; Tailoring &rarr;</span>
+          </div>
+        </div>
+
+        <div class="category-card" data-category="streetwear">
+          <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=700&q=80" alt="Streetwear & Hoodies">
+          <div class="category-overlay">
+            <h3>Streetwear</h3>
+            <span>Heavyweight Hoodies &amp; Overdyed Tees &rarr;</span>
+          </div>
+        </div>
+
+        <div class="category-card" data-category="accessories">
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80" alt="Accessories & Footwear">
+          <div class="category-overlay">
+            <h3>Accessories</h3>
+            <span>Leather Bags, Hats &amp; Shoes &rarr;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catalog / Shop Section -->
+  <section class="shop-section" id="catalog">
+    <div class="container">
+      
+      <div class="section-header">
+        <div class="section-subtitle">Explore Our Range</div>
+        <h2 class="section-title">Featured Pieces</h2>
+      </div>
+
+      <!-- Filter Controls Bar -->
+      <div class="filter-bar">
+        <div class="filter-top-row">
+          <!-- Category Tabs -->
+          <div class="category-tabs" id="categoryTabs">
+            <button class="tab-btn active" data-filter="all">All</button>
+            <button class="tab-btn" data-filter="women">Women</button>
+            <button class="tab-btn" data-filter="men">Men</button>
+            <button class="tab-btn" data-filter="streetwear">Streetwear</button>
+            <button class="tab-btn" data-filter="shoes">Shoes</button>
+            <button class="tab-btn" data-filter="accessories">Accessories</button>
+          </div>
+
+          <!-- Sort and Advanced Filter Toggle -->
+          <div class="filter-controls">
+            <div class="sort-select-wrapper">
+              <select class="sort-select" id="sortSelect" aria-label="Sort products">
+                <option value="featured">Sort by: Featured</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Top Customer Rated</option>
+                <option value="name">Alphabetical (A - Z)</option>
+              </select>
+              <div class="sort-arrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </div>
+
+            <button class="btn-filter-toggle" id="filterToggleBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="4" y1="21" x2="4" y2="14"></line>
+                <line x1="4" y1="10" x2="4" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12" y2="3"></line>
+                <line x1="20" y1="21" x2="20" y2="16"></line>
+                <line x1="20" y1="12" x2="20" y2="3"></line>
+                <line x1="1" y1="14" x2="7" y2="14"></line>
+                <line x1="9" y1="8" x2="15" y2="8"></line>
+                <line x1="17" y1="16" x2="23" y2="16"></line>
+              </svg>
+              <span>Filters</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Collapsible Advanced Filters -->
+        <div class="advanced-filters-panel" id="advancedFilterPanel">
+          <!-- Price Range Slider -->
+          <div class="filter-group">
+            <div class="filter-group-title">Max Price</div>
+            <div class="price-range-wrapper">
+              <input type="range" class="price-slider" id="priceRange" min="30" max="200" step="5" value="200">
+              <div class="price-values">
+                <span>$30</span>
+                <span id="priceRangeValue" style="color:var(--accent); font-weight:700;">$200</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Size Filter Chips -->
+          <div class="filter-group">
+            <div class="filter-group-title">Filter by Size</div>
+            <div class="size-chips" id="sizeFilters">
+              <button class="size-chip" data-size="XS">XS</button>
+              <button class="size-chip" data-size="S">S</button>
+              <button class="size-chip" data-size="M">M</button>
+              <button class="size-chip" data-size="L">L</button>
+              <button class="size-chip" data-size="XL">XL</button>
+              <button class="size-chip" data-size="42">42</button>
+            </div>
+          </div>
+
+          <!-- Availability & Badges -->
+          <div class="filter-group">
+            <div class="filter-group-title">Special Offers</div>
+            <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.86rem; cursor:pointer; margin-bottom:0.4rem;">
+              <input type="checkbox" id="onSaleOnly" style="accent-color:var(--primary);">
+              <span>On Sale Items Only</span>
+            </label>
+            <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.86rem; cursor:pointer;">
+              <input type="checkbox" id="inStockOnly" checked style="accent-color:var(--primary);">
+              <span>In Stock Only</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Filters Bar -->
+      <div class="active-filters-bar" id="activeFiltersBar" style="display:none;">
+        <span style="font-size:0.82rem; font-weight:700; color:var(--text-secondary);">Active filters:</span>
+        <div id="activeFilterTags" style="display:flex; gap:0.4rem; flex-wrap:wrap;"></div>
+        <button class="clear-all-filters-btn" id="clearAllFiltersBtn">Reset all</button>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Flash Sale Promo Banner with Live Countdown -->
+  <section class="promo-banner-section" id="saleBanner">
+    <div class="container">
+      <div class="promo-banner">
+        <div class="promo-text">
+          <div class="promo-badge">Flash Promotion</div>
+          <h2 class="promo-title">Spring Mid-Season Sale.<br>Up to 40% Off Everything.</h2>
+          <p class="promo-desc">
+            Upgrade your seasonal wardrobe with premium cashmere, tailored outerwear, and Italian leather accessories before stock runs out.
+          </p>
+          <div class="promo-countdown">
+            <div class="countdown-box">
+              <span class="number" id="countdownHours">08</span>
+              <span class="label">Hours</span>
+            </div>
+            <span style="font-weight:700; font-size:1.5rem;">:</span>
+            <div class="countdown-box">
+              <span class="number" id="countdownMinutes">42</span>
+              <span class="label">Mins</span>
+            </div>
+            <span style="font-weight:700; font-size:1.5rem;">:</span>
+            <div class="countdown-box">
+              <span class="number" id="countdownSeconds">15</span>
+              <span class="label">Secs</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="promo-cta-box">
+          <span style="font-size:0.85rem; opacity:0.85;">Use code at checkout for 40% off:</span>
+          <div class="coupon-code-pill" id="promoBannerCoupon" title="Click to copy coupon">
+            <span>SPRING40</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+          </div>
+          <a href="#catalog" class="btn btn-primary" style="background:#FFF; color:#000;">
+            Shop Sale Pieces
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Testimonials -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-subtitle">Real Customer Love</div>
+        <h2 class="section-title">Endorsed by Fashion Enthusiasts</h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "The Minimalist Trench Coat exceeded all my expectations. The tailoring feels like a £600 piece from a Parisian boutique. Shipping was remarkably fast."
+          </p>
+          <div class="testimonial-user">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Elena Rostova" class="user-avatar">
+            <div class="user-info">
+              <h5>Elena Rostova</h5>
+              <span class="verified-tag">✓ Verified Buyer</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "Finding well-fitted chinos that don't lose shape after 3 washes used to be impossible. VELVET &amp; CO.'s stretch twill is now my official everyday standard."
+          </p>
+          <div class="testimonial-user">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Marcus Sterling" class="user-avatar">
+            <div class="user-info">
+              <h5>Marcus Sterling</h5>
+              <span class="verified-tag">✓ Verified Buyer</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "The heavyweight French terry hoodie has that distinct boxy street fit I love. Plus, customer support assisted me immediately with a quick size swap."
+          </p>
+          <div class="testimonial-user">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=80" alt="Sophie Chen" class="user-avatar">
+            <div class="user-info">
+              <h5>Sophie Chen</h5>
+              <span class="verified-tag">✓ Verified Buyer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-box">
+        <h3>Join The Club &amp; Get 10% Off</h3>
+        <p>Subscribe to receive curated style forecasts, private flash previews, and member-exclusive drops.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" id="newsletterEmail" placeholder="Enter your email address" required>
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <div class="brand-logo">VELVET &amp; CO<span class="logo-dot">.</span></div>
+          <p>
+            An independent fashion collective designing elevated essentials with enduring silhouettes, responsible craftsmanship, and modern flair.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Pinterest">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M8 12c.5-1.5 2-2 3.5-2 2 0 3.5 1 3.5 3s-1.5 4-3 4c-1 0-1.5-.5-2-1l-1 4"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="#catalog" data-category="women">Women's Collection</a></li>
+            <li><a href="#catalog" data-category="men">Men's Essentials</a></li>
+            <li><a href="#catalog" data-category="streetwear">Streetwear &amp; Fleece</a></li>
+            <li><a href="#catalog" data-category="shoes">Footwear &amp; Sneakers</a></li>
+            <li><a href="#saleBanner">Flash Deals</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Client Services</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="alert('Our stylists are available 24/7 via live support.'); return false;">Size &amp; Fit Guide</a></li>
+            <li><a href="#" onclick="alert('Free worldwide tracking available on all orders over $75.'); return false;">Order Tracking</a></li>
+            <li><a href="#" onclick="alert('30-day hassle-free returns on unworn items with tags.'); return false;">Returns &amp; Exchanges</a></li>
+            <li><a href="#" onclick="alert('All packaging is 100% recyclable post-consumer material.'); return false;">Sustainability Report</a></li>
+            <li><a href="#" onclick="alert('Contact: concierge@velvetandco.com | Tel: +1 800-555-FASHION'); return false;">Concierge Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Boutique Stores</h4>
+          <ul class="footer-links">
+            <li><span style="color:#FFF; font-weight:600;">SoHo, New York</span><br><span style="font-size:0.8rem;">428 Broome St, NY 10013</span></li>
+            <li style="margin-top:0.75rem;"><span style="color:#FFF; font-weight:600;">Mayfair, London</span><br><span style="font-size:0.8rem;">14 Conduit St, W1S 2XJ</span></li>
+            <li style="margin-top:0.75rem;"><span style="color:#FFF; font-weight:600;">Le Marais, Paris</span><br><span style="font-size:0.8rem;">28 Rue de Poitou, 75003</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 VELVET &amp; CO. All Rights Reserved. Designed for modern living.</p>
+        <div class="payment-methods">
+          <span>💳 VISA</span>
+          <span>•</span>
+          <span>Mastercard</span>
+          <span>•</span>
+          <span>PayPal</span>
+          <span>•</span>
+          <span>Apple Pay</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODALS, DRAWERS & OVERLAYS
+       ========================================================================== -->
+
+  <!-- Backdrop Overlay -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+
+  <!-- Shopping Cart Slide-out Drawer -->
+  <aside class="drawer" id="cartDrawer" aria-label="Shopping Cart">
+    <div class="drawer-header">
+      <h3 class="drawer-title">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        Your Bag (<span id="cartDrawerCount">0</span>)
+      </h3>
+      <button class="drawer-close-btn" id="cartCloseBtn" aria-label="Close cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Free Shipping Progress Meter -->
+    <div class="free-shipping-meter">
+      <div class="shipping-status-text" id="shippingStatusText">
+        Add <span>$75.00</span> more for Free Express Shipping!
+      </div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="shippingProgressBar" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items Scrollable List -->
+    <div class="drawer-body">
+      <div class="cart-items-list" id="cartItemsList">
+        <!-- Rendered by app.js -->
+      </div>
+
+      <!-- Empty Cart Message -->
+      <div class="drawer-empty-state" id="cartEmptyState" style="display:none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <h4>Your Shopping Bag is Empty</h4>
+        <p>Explore our seasonal drop and find pieces crafted to match your signature wardrobe.</p>
+        <button class="btn btn-primary" id="startShoppingBtn">Start Shopping</button>
+      </div>
+    </div>
+
+    <!-- Cart Footer & Checkout Button -->
+    <div class="drawer-footer" id="cartFooter">
+      <!-- Promo Code Form -->
+      <div class="coupon-box">
+        <div class="coupon-input-group">
+          <input type="text" id="couponInput" placeholder="Promo code (e.g. SPRING40)">
+          <button class="btn-apply-coupon" id="applyCouponBtn">Apply</button>
+        </div>
+        <div class="coupon-feedback" id="couponFeedback"></div>
+      </div>
+
+      <!-- Calculations -->
+      <div class="drawer-summary-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">$0.00</span>
+      </div>
+      <div class="drawer-summary-row" id="cartDiscountRow" style="display:none; color:var(--success);">
+        <span>Discount (<span id="discountName"></span>)</span>
+        <span id="cartDiscountAmount">-$0.00</span>
+      </div>
+      <div class="drawer-summary-row">
+        <span>Estimated Shipping</span>
+        <span id="cartShippingCost">$0.00</span>
+      </div>
+      <div class="drawer-summary-row total">
+        <span>Total</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+
+      <button class="btn btn-primary" id="checkoutBtn" style="width:100%; padding:0.95rem;">
+        Proceed to Checkout
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <button id="clearCartBtn" style="font-size:0.78rem; color:var(--text-muted); text-decoration:underline;">
+          Clear bag
+        </button>
+        <span style="font-size:0.75rem; color:var(--text-muted);">🔒 100% Guaranteed Checkout</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Wishlist Slide-out Drawer -->
+  <aside class="drawer" id="wishlistDrawer" aria-label="Saved Wishlist">
+    <div class="drawer-header">
+      <h3 class="drawer-title">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+        Wishlist (<span id="wishlistDrawerCount">0</span>)
+      </h3>
+      <button class="drawer-close-btn" id="wishlistCloseBtn" aria-label="Close wishlist">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="drawer-body">
+      <div class="cart-items-list" id="wishlistItemsList">
+        <!-- Rendered by app.js -->
+      </div>
+
+      <!-- Empty Wishlist Message -->
+      <div class="drawer-empty-state" id="wishlistEmptyState" style="display:none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+        <h4>Your Wishlist is Empty</h4>
+        <p>Save pieces you love by tapping the heart icon on any product card.</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Quick View Modal -->
+  <div class="center-modal" id="quickViewModal">
+    <button class="modal-close-corner" id="quickViewCloseBtn" aria-label="Close quick view">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <div class="quickview-grid" id="quickViewContent">
+      <!-- Populated dynamically by app.js -->
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div class="center-modal checkout-modal" id="checkoutModal">
+    <button class="modal-close-corner" id="checkoutCloseBtn" aria-label="Close checkout">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="checkout-header">
+      <div style="font-size:0.8rem; font-weight:700; text-transform:uppercase; color:var(--accent); margin-bottom:0.25rem;">
+        Secure Payment Portal
+      </div>
+      <h3>Fast Checkout</h3>
+      <p style="font-size:0.88rem; color:var(--text-secondary);">Fill in your shipping coordinates to complete your order.</p>
+    </div>
+
+    <form class="checkout-form" id="checkoutForm">
+      <div class="form-grid-2">
+        <div class="form-field">
+          <label for="checkFirstName">First Name *</label>
+          <input type="text" id="checkFirstName" placeholder="" required>
+        </div>
+        <div class="form-field">
+          <label for="checkLastName">Last Name *</label>
+          <input type="text" id="checkLastName" placeholder="" required>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="checkEmail">Email Address (For receipt &amp; tracking) *</label>
+        <input type="email" id="checkEmail" placeholder="" required>
+      </div>
+
+      <div class="form-field">
+        <label for="checkAddress">Street Address *</label>
+        <input type="text" id="checkAddress" placeholder="" required>
+      </div>
+
+      <div class="form-grid-2">
+        <div class="form-field">
+          <label for="checkCity">City *</label>
+          <input type="text" id="checkCity" placeholder="" required>
+        </div>
+        <div class="form-field">
+          <label for="checkZip">Postal / ZIP Code *</label>
+          <input type="text" id="checkZip" placeholder="" required>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label>Payment Method</label>
+        <div class="payment-method-selector">
+          <div class="payment-method-card selected" data-method="card">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+              <line x1="1" y1="10" x2="23" y2="10"></line>
+            </svg>
+            <span>Credit Card</span>
+          </div>
+          <div class="payment-method-card" data-method="paypal">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10 13l2-5h5a4 4 0 0 1 0 8h-4l-2 5H7l3-8z"></path>
+            </svg>
+            <span>PayPal</span>
+          </div>
+          <div class="payment-method-card" data-method="cod">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+            <span>Pay on Delivery</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="drawer-summary-row total" style="padding-top:1rem; margin-top:0.5rem; border-top:1px solid var(--border-light);">
+        <span>Total Payable:</span>
+        <span id="checkoutTotalPayable" style="color:var(--accent);">$0.00</span>
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="confirmOrderBtn" style="padding:1rem; width:100%; font-size:1.05rem;">
+        Authorize &amp; Place Order
+      </button>
+    </form>
+  </div>
+
+  <!-- Order Confirmation Success Modal -->
+  <div class="center-modal" id="orderSuccessModal" style="max-width:540px;">
+    <div class="order-success-screen">
+      <div class="success-icon-badge">✓</div>
+      <h3>Order Confirmed!</h3>
+      <p>Thank you for shopping with VELVET &amp; CO. We are meticulously preparing your package for express dispatch.</p>
+      
+      <div class="receipt-summary-box">
+        <div class="receipt-row">
+          <span>Order Reference:</span>
+          <strong id="receiptOrderId">#ORD-89412</strong>
+        </div>
+        <div class="receipt-row">
+          <span>Estimated Delivery:</span>
+          <strong id="receiptDeliveryDate">3 - 5 Business Days</strong>
+        </div>
+        <div class="receipt-row">
+          <span>Delivering To:</span>
+          <strong id="receiptCustomerName">Jane Doe</strong>
+        </div>
+        <div class="receipt-row bold">
+          <span>Amount Paid:</span>
+          <strong id="receiptTotalPaid">$0.00</strong>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" id="orderSuccessCloseBtn" style="width:100%; padding:0.9rem;">
+        Continue Exploring Collections
+      </button>
+    </div>
+  </div>
+
+  <!-- Floating Toast Notifications Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
